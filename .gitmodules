@@ -1,0 +1,3 @@
+[submodule "kp-anidb-ts"]
+	path = kp-anidb-ts
+	url = git@github.com:Kitsune-Poster/kp-anidb-ts.git

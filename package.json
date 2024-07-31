@@ -1,0 +1,22 @@
+{
+  "name": "ms-kp-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run module && ts-node src/index.ts",
+    "kp-anidb-ts": "cd ./kp-anidb-ts/ && npm i && npm run build && cd ./../",
+    "module": "npm run kp-anidb-ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "configparser": "^0.3.10",
+    "express": "^4.19.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21"
+  }
+}
