@@ -17,7 +17,7 @@ const main = async () => {
     let db = KSAniDB.builder()
         .setClient(client)
         .setClientVer(parseInt(clientVer))
-        .setRateLimit(1, 2000, true)
+        .setRateLimit(1, 2000, true, true)
         .setCache("./cache", 1000 * 60 * 60 * 24, true)
         .build()
 
