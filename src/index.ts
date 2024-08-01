@@ -1,5 +1,5 @@
 import ConfigParser from "configparser";
-import { KSAniDB } from "./../kp-anidb-ts/dist/index";
+import { KSAniDB } from "./../kp-anidb-ts/dist/src/index";
 import express from "express";
 
 let config = new ConfigParser()
@@ -24,20 +24,20 @@ const main = async () => {
     await db.init()
 
     let app = express()
-    
+
     app.get("/search/:title", async (req, res) => {
-        let animes = db.searchTitle(req.params.title)
+        let animes = await db.searchTitle(req.params.title)
         res.json(animes.map(anime => anime.data()))
     })
 
     app.get("/details/:title", async (req, res) => {
-        let anime = db.searchTitle(req.params.title)[0]
+        let anime = (await db.searchTitle(req.params.title))[0]
         let details = await anime.fetchDetails()
         res.json(details)
     })
 
     app.get("/suggest/:title", async (req, res) => {
-        let suggestion = db.suggestTitle(req.params.title)
+        let suggestion = await db.suggestTitle(req.params.title)
         res.json(suggestion)
     })
 
